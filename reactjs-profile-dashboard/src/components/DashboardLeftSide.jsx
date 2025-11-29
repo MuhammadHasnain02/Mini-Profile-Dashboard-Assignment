@@ -32,7 +32,7 @@ function DashboardLeftSide() {
         <div className="flex items-center font-semibold text-gray-600 gap-3 p-2 rounded hover:bg-gray-100 transition cursor-pointer"
         onClick={() => navigation('/profile')}>
           <i class="fa-regular fa-circle-user text-lg"></i>
-          Profile
+          Profiles
         </div>
 
         <div className="flex items-center font-semibold text-gray-600 gap-3 p-2 rounded hover:bg-gray-100 transition cursor-pointer"

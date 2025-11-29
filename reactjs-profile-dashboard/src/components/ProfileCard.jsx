@@ -26,8 +26,7 @@ function ProfileCardItem({ user }) {
 
       {/* Followers */}
       <div className="text-center mb-4">
-        <p className="text-gray-700">Followers</p>
-        <h3 className="text-2xl font-bold text-indigo-600">{followers}</h3>
+        <p className="text-gray-600 font-semibold">Followers : <span className="text-xl font-bold text-indigo-600">{followers}</span></p>
       </div>
 
       {/* Follow Button */}
@@ -48,9 +47,9 @@ function ProfileCard({ profiles }) {
 
     <div className="ml-60 mb-20 p-10">
 
-      <h1 className="text-3xl font-bold text-gray-800 mb-2">My Profiles</h1>
+      <h1 className="text-3xl font-bold text-gray-800 mb-2">Profiles</h1>
       <p className="text-gray-500 mb-6">
-        Here are some of my profiles with details and followers count.
+        Here are some profiles including yours and others with their details and followers count.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">

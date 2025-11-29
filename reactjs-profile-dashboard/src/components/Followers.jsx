@@ -1,11 +1,10 @@
-import { useState } from "react";
 
 // Individual Followers Card
 function FollowersCardItem({ user }) {
-  const [followers, setFollowers] = useState(user.followers || 0);
 
   return (
-    <div className="flex flex-col justify-center w-full bg-white shadow-lg border border-gray-200 rounded-2xl p-6 transform transition-transform hover:-translate-y-1 hover:shadow-2xl">
+
+    <div className="flex flex-col justify-center w-full bg-white shadow-lg border border-gray-200 rounded-2xl p-6">
 
       {/* Image */}
       <div className="flex justify-center mb-4">
@@ -23,20 +22,19 @@ function FollowersCardItem({ user }) {
       {/* Email */}
       <p className="text-gray-600 text-center text-sm mb-4">{user.email}</p>
 
-      {/* Followers */}
+      {/* Followers Count */}
       <div className="text-center mb-4">
         <p className="text-gray-700">Followers</p>
-        <h3 className="text-2xl font-bold text-indigo-600">{followers}</h3>
+        <h3 className="text-2xl font-bold text-indigo-600">{user.followers}</h3>
       </div>
 
-      {/* Follow Button */}
-      <button
-        onClick={() => setFollowers(followers + 1)}
-        className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition duration-300"
-      >
-        Follow
+      {/* Unfollow Button */}
+      <button className="w-full py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg cursor-pointer transition duration-300 hover:scale-[0.98]">
+        Unfollow
       </button>
+      
     </div>
+
   );
 }
 
