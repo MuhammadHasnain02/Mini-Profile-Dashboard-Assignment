@@ -99,7 +99,7 @@ function App() {
       <DashboardLeftSide />
       <Routes>
 
-        <Route index element={<Home />} />
+        <Route index element={<Home profiles={profiles} hobbies={hobbies} />} />
         <Route path="/profile" element={<ProfileCard profiles={profiles} />} />
         <Route path="/followers" element={<FollowersCard profiles={profiles} />} />
         <Route path="/hobbies" element={<HobbyList hobbies={hobbies} />} />

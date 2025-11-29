@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Home({ profiles , hobbies }) {
 
     const navigation = useNavigate()
 
@@ -59,44 +59,89 @@ function Home() {
 
             </div>
 
-            {/* Profile Summary Card */}
-            <div className="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">Profile Summary</h2>
+            {/* Profile Summary and Hobbies Cards */}
+            <div className="flex flex-row justify-between gap-6 mt-8">
 
-                <div className="flex items-center gap-6">
-                    <i class="fa-regular fa-circle-user w-20 h-20 text-2xl"></i>
+                {/* Profile Summary Card */}
+                <div className="bg-white px-8 py-6 rounded-xl shadow-sm cursor-pointer border border-gray-200">
+                    
+                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Profile Summary</h2>
 
-                    <div>
-                        <p className="text-gray-700 font-semibold text-lg">John Doe</p>
-                        <p className="text-gray-500 text-sm">Frontend Developer</p>
-                        <p className="text-gray-600 mt-2 max-w-[400px]">
-                        Passionate about UI/UX, coding beautiful interfaces, and building clean dashboards.
-                        </p>
+                    {profiles.slice(0 , 2).map((user) => {
+
+                        return (
+                            <div key={user.id} onClick={() => navigation('/profile')}
+                                className="flex items-center pt-5 mt-4 gap-6 border-t border-gray-300">
+                                
+                                {/* Image */}
+                                <div className="flex justify-center mb-4">
+                                    <img
+                                    src={user.image}
+                                    alt={user.name}
+                                    className="w-24 h-24 rounded-full border shadow-sm"
+                                    />
+                                </div>
+                                <div>
+                                    <p className="text-gray-700 font-semibold text-lg">{user.name}</p>
+                                    <p className="text-gray-500 text-sm">{user.role}</p>
+                                    <p className="text-gray-600 mt-2 max-w-[400px]">{user.email}</p>
+                                </div>
+
+                            </div>
+                        )
+
+                    })}
+
+                </div>
+
+                {/* Hobbies box */}
+                <div className="bg-white px-10 py-6 rounded-xl shadow-sm cursor-pointer border border-gray-200">
+                    
+                    <h2 className="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-1.5 mb-5">Your Hobbies</h2>
+
+                    {/* Hobbies box */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                
+                        {hobbies.slice(0 , 3).map((hobby, index) => (
+                            
+                            <div key={index} onClick={() => navigation('/hobbies')}
+                                className="flex flex-col justify-center w-full bg-white shadow-lg border border-gray-200 rounded-2xl p-8 cursor-pointer hover:shadow-xl">
+                                {/* Icon + Name */}
+                                <div className="flex items-center justify-center mb-2">
+                                    {hobby.icon}
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-800">{hobby.name}</h2>
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-center text-gray-500 text-sm">
+                                    {hobby.description}
+                                </p>
+                            </div>
+
+                        ))}
+
+                        <div onClick={() => navigation('/hobbies')}
+                        className="flex flex-col justify-center w-full bg-white shadow-lg border border-gray-200 rounded-2xl p-8 cursor-pointer hover:shadow-xl">
+                            
+                            {/* Icon + Name */}
+                            <div className="flex items-center justify-center mb-2 space-x-2">
+                                <i className="fa-solid fa-plus text-2xl text-indigo-500"></i>
+                                <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
+                                Add Hobby
+                                </h2>
+                            </div>
+
+                            {/* Description */}
+                            <p className="text-center text-gray-500 text-sm">
+                                Add your new hobby here
+                            </p>
+
+                        </div>
+
                     </div>
+                    
                 </div>
-            </div>
 
-            {/* Hobbies box */}
-            <div className="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">Your Hobbies</h2>
-
-                <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                    Coding
-                </span>
-
-                <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                    Gaming
-                </span>
-
-                <span className="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">
-                    Reading
-                </span>
-
-                <span className="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                    Music
-                </span>
-                </div>
             </div>
 
         </div>
