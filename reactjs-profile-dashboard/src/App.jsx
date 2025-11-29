@@ -6,6 +6,7 @@ import ProfileCard from "./components/ProfileCard";
 import HobbyList from "./components/HobbyList";
 import Setting from "./components/Setting";
 import FollowersCard from "./components/Followers";
+import Navbar from "./components/Navbar";
 
 function App() {
 
@@ -96,6 +97,9 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen justify-between">
 
+      <div className="ml-60">
+        <Navbar />
+      </div>
       <DashboardLeftSide />
       <Routes>
 

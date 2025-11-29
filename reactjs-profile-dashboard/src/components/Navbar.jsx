@@ -5,34 +5,51 @@ function Navbar() {
     const navigation = useNavigate()
     
     return (
-        <nav className="bg-white/10 backdrop-blur-lg sticky top-0 z-20 rounded-2xl flex justify-between items-center px-8 py-3 shadow-lg">
-            <div className="flex items-center gap-3 cursor-pointer"
-            onClick={() => navigation('/')}>
+        <div className="px-6 py-4 z-50 bg-white shadow-sm border-b border-gray-200 flex items-center justify-between">
 
-                <div className="flex flex-row items-center justify-center bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full w-16 h-16 transition ease-in-out duration-500 hover:scale-105 cursor-pointer p-2 shadow-xl">
-                    <i className="fa-solid fa-layer-group text-[28px] text-gray-200"></i>
+            {/* Left Side */}
+            <div className="flex flex-row justify-around space-x-10">
+
+                {/* Left - Hamburger */}
+                <button className="border border-gray-200 px-2 py-1 rounded-md text-gray-600 text-xl cursor-pointer hover:text-gray-900">
+                    <i className="fa-solid fa-bars"></i>
+                </button>
+
+                {/* Center - Search Box */}
+                <div className="flex items-center border border-gray-300 rounded-full px-4 py-2.5 w-full">
+                    <i className="fa-solid fa-magnifying-glass text-gray-500 mr-3"></i>
+                    <input
+                        type="text"
+                        placeholder="Search or type command..."
+                        className="placeholder:tracking-tight font-medium bg-transparent outline-none text-sm w-100"
+                    />
                 </div>
-                <span className="text-gray-200 text-xl md:text-[22px] font-extrabold">
-                    Profile <span className="text-indigo-300">Dashboard</span>
-                </span>
 
             </div>
 
-            <div className="hidden md:flex gap-6">
-                <p className="text-white font-medium hover:text-indigo-400 transition-colors cursor-pointer"
-                onClick={() => navigation('/')}>
-                    <i className="fa-regular fa-house"></i>  Home
-                </p>
-                <p className="text-gray-300 font-medium hover:text-indigo-400 transition-colors cursor-pointer"
-                onClick={() => navigation('/')}>
-                    <i className="fa-regular fa-paper-plane"></i> Posts
-                </p>
-                <p className="text-gray-300 font-medium hover:text-indigo-400 transition-colors cursor-pointer"
-                onClick={() => navigation('/')}>
-                    <i className="fa-regular fa-chart-bar"></i> About
-                </p>
+            {/* Right Icons Side */}
+            <div className="flex items-center gap-5">
+
+                {/* Dark mode toggle */}
+                <button className="text-gray-600 text-xl cursor-pointer hover:text-gray-900">
+                    <i className="fa-regular fa-moon"></i>
+                </button>
+
+                {/* Notifications */}
+                <button className="text-gray-600 text-xl hover:text-gray-900 relative">
+                    <i className="fa-regular fa-bell"></i>
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+
+                {/* Profile Image */}
+                <div className="flex items-center gap-2 cursor-pointer">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <p className="font-medium text-gray-800">User</p>
+                </div>
+
             </div>
-        </nav>
+
+        </div>
     )
 
 }

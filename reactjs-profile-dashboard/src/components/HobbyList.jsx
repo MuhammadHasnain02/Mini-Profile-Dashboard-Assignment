@@ -2,7 +2,7 @@ function HobbyList({ hobbies }) {
 
     return (
 
-        <div className="ml-60 p-10">
+        <div className="ml-60 p-10 min-h-screen">
             <h1 className="text-3xl font-bold text-gray-800 mb-2">My Hobbies</h1>
             <p className="text-gray-500 mb-6">Here are some of my favorite hobbies I enjoy doing regularly.</p>
 

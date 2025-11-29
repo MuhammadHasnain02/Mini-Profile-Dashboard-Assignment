@@ -4,7 +4,7 @@
 function Setting() {
 
     return (
-    <div className="ml-60 flex items-center justify-center h-screen bg-gray-100">
+    <div className="ml-60 flex items-center justify-center min-h-screen bg-gray-100">
         <div className="flex flex-col items-center text-center space-y-4">
 
             {/* Icon */}
