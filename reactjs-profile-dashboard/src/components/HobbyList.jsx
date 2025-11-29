@@ -1,5 +1,11 @@
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
+
+
 function HobbyList({ hobbies }) {
 
+    const { darkMode, setDarkMode } = useContext(ThemeContext)
+    
     return (
 
         <div className="ml-60 p-10 min-h-screen">

@@ -1,55 +1,66 @@
-import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { ThemeContext } from "./ThemeContext"
 
 function Navbar() {
 
-    const navigation = useNavigate()
+    const { darkMode, setDarkMode } = useContext(ThemeContext)
     
     return (
-        <div className="px-6 py-4 z-50 bg-white shadow-sm border-b border-gray-200 flex items-center justify-between">
+        <nav className={`px-6 py-4 z-50 shadow-sm border-b flex items-center justify-between transition-all duration-300
+            ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-black border-gray-200"}`}>
 
             {/* Left Side */}
             <div className="flex flex-row justify-around space-x-10">
 
-                {/* Left - Hamburger */}
-                <button className="border border-gray-200 px-2 py-1 rounded-md text-gray-600 text-xl cursor-pointer hover:text-gray-900">
+                {/* Hamburger */}
+                <button className={`px-2 py-1 rounded-md text-xl cursor-pointer border
+                    ${darkMode ? "border-gray-700 text-gray-300 hover:text-white" : "border-gray-200 text-gray-600 hover:text-gray-900"}`}>
                     <i className="fa-solid fa-bars"></i>
                 </button>
 
-                {/* Center - Search Box */}
-                <div className="flex items-center border border-gray-300 rounded-full px-4 py-2.5 w-full">
-                    <i className="fa-solid fa-magnifying-glass text-gray-500 mr-3"></i>
-                    <input
-                        type="text"
-                        placeholder="Search or type command..."
-                        className="placeholder:tracking-tight font-medium bg-transparent outline-none text-sm w-100"
+                {/* Search Box */}
+                <div className={`flex items-center rounded-full px-4 py-2.5 w-full border
+                    ${darkMode ? "border-gray-700" : "border-gray-300"}`}>
+
+                    <i className={`fa-solid fa-magnifying-glass mr-3 
+                        ${darkMode ? "text-gray-400" : "text-gray-500"}`}
+                    ></i>
+                    <input type="text" placeholder="Search or type command..."
+                        className={`placeholder:tracking-tight font-medium bg-transparent outline-none text-sm w-100
+                        ${darkMode ? "text-white placeholder-gray-400" : "text-black placeholder-gray-500"}`}
                     />
+
                 </div>
 
             </div>
 
-            {/* Right Icons Side */}
+            {/* Right Side */}
             <div className="flex items-center gap-5">
 
-                {/* Dark mode toggle */}
-                <button className="text-gray-600 text-xl cursor-pointer hover:text-gray-900">
-                    <i className="fa-regular fa-moon"></i>
+                {/* Dark Mode Toggle */}
+                <button onClick={() => setDarkMode(!darkMode)}
+                    className={`cursor-pointer ${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"} text-xl`}>
+                    <i className={`fa-regular fa-${darkMode ? "sun" : "moon"}`}></i>
                 </button>
 
-                {/* Notifications */}
-                <button className="text-gray-600 text-xl hover:text-gray-900 relative">
+                {/* Notification Icon */}
+                <button className={`relative text-xl cursor-pointer
+                    ${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}>
                     <i className="fa-regular fa-bell"></i>
                     <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
 
-                {/* Profile Image */}
+                {/* Profile */}
                 <div className="flex items-center gap-2 cursor-pointer">
-                    <i class="fa-regular fa-circle-user"></i>
-                    <p className="font-medium text-gray-800">User</p>
+                    <i className={`fa-regular fa-circle-user ${darkMode ? "text-gray-300" : "text-gray-700"}`}></i>
+                    <p className={`${darkMode ? "text-gray-200" : "text-gray-800"} font-medium`}>
+                        User
+                    </p>
                 </div>
 
             </div>
+        </nav>
 
-        </div>
     )
 
 }
